@@ -56,6 +56,11 @@ body {
 
 }
 
+#wannago:hover {
+	cursor: pointer;
+}
+
+
 .area_check {
 	border: 1px solid #000;
 }

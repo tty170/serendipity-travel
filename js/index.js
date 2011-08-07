@@ -7,8 +7,9 @@ $(function() {
 	function requestGetPhotos(from, to) {
 		$.ajax({
 			type: 'GET',
-			url: 'http://www.panoramio.com/map/get_panoramas.php',
-			data: 'set=public&from=' + from +  '&to=' + to + '&minx=-180&miny=-90&maxx=180&maxy=90&size=medium&mapfilter=true',
+			//url: 'http://www.panoramio.com/map/get_panoramas.php',
+			url: 'http://api.seren.tv/d_image/',
+			//data: 'set=public&from=' + from +  '&to=' + to + '&minx=-180&miny=-90&maxx=180&maxy=90&size=medium&mapfilter=true',
 			success: function(data){
 				if (data != null && data.count > 1) {
 					loadPhoto(data.photos, 0);
@@ -23,7 +24,6 @@ $(function() {
 			requestGetPhotos(from, from + pageSize);
 			return;
 		}
-		
 		var currentPhoto = photos[index];
 		var nextPhoto = photos[index + 1];
 
@@ -49,9 +49,10 @@ $(function() {
 	
 	$('#wannago').click(function() {
 	    var selectedImg = $('#current');
-        $.ajax({
-        	type: 'POST',
-        	url: '/wantToGo',
+		document.location="location.html";
+        /*$.ajax({
+        	type: 'GET',
+        	url: '/new',
         	data: {
         	    'photo_id': selectedImg.attr('data-photoId'),
         	    'photo_file_url': selectedImg.src
@@ -59,6 +60,6 @@ $(function() {
         	success: function(data){
         		console.log(data);
         	}
-        });
+        });*/
 	});
 });
