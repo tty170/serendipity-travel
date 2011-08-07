@@ -1,23 +1,60 @@
 $(function() {
-    $.getJSON('data/test.json', {}, function(data) {
+    $('#restaurantSelect').click(function() {
+        var urlElement = location.href.split('/');
+        var pathElement = urlElement[urlElement.length - 1];
+        var lastPath = pathElement.split('?')[0];
+        var hash = lastPath.split('.')[0];
+        
+        var hotelAnchor = $('#restaurant-thums li.selected a');
+        $.ajax({
+        	type: 'GET',
+        	url: 'http://seren.tv/post',
+        	data: {'hash': hash, 
+        	    'target': 'r', 
+        	    'status': hotelAnchor.attr('data-restaurantCode')
+        	},
+        	success: function(data) {
+        		showSelectedRestaurant();
+        	},
+        	error: function(data) {
+        	    showSelectedRestaurant();
+        	}
+        });
+    });
+    
+
+    function showSelectedRestaurant(restaurant) {
+        var hotelAnchor = $('#restaurant-thums li.selected a');
+        $('<div><img width="180" height="180" src="http://media-cdn.tripadvisor.com/media/photo-s/01/ef/4d/11/steak-with-mushroom-sauce.jpg"></img><span style="font-size: 2em;">Tiramisu</span></div>')
+            .appendTo($('#selectedRestaurant'));
+    
+        $('#restaurantSelect').hide();
+        $('#restaurants').hide();
+        $('#selectedRestaurant').show();
+    }
+
+    $.getJSON('http://api.seren.tv/d_restaurant/', {'citycode':'CHI'}, function(data) {
         var index = 0;
-        var restaurantsCount = data.restaurants.length;
+        var restaurants = data;
+        var restaurantsCount = hotels.length;
         var thumbs = $('#restaurants-thumbs .thumbs');
         
-        $(data.restaurants).each(function(i) {
-            var restaurant = data.restaurants[i];
+        $(restaurants).each(function(i) {
+            var restaurant = restaurants[i];
             
             $('<li>').append(
                 $('<a>').attr({
-                    'data-restaurantId': restaurant.id,
+                    'data-restaurantId': restaurant.code,
                     'class': 'thumb',
                     'href': '#'
                 }).click(function(event) {
                     console.log(event.currentTarget);
                 }).append(
                     $('<img>').attr({
-                        'src': restaurant.photoUrl,
-                        'alt': '#'
+                        'src': restaurant.img_url,
+                        'alt': restaurant.name,
+                        'height': 80,
+                        'width': 80
                     }).load(function() {
                         if (++index >= restaurantsCount) {
                             applyThumbsView();

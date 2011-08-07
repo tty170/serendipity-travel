@@ -10,26 +10,27 @@
     <link type='text/css' href='css/gallery.css' rel='stylesheet'>
     <script type='text/javascript' src='js/jquery.galleriffic.js'></script>
     <script type='text/javascript' src='js/jquery.opacityrollover.js'></script>
-    <script type='text/javascript' src='js/restaurant.js'></script>
 
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="js/location.js"></script>
+    <script type='text/javascript' src='js/hotel.js'></script>
+    <script type='text/javascript' src='js/restaurant.js'></script>
     <title>Serendipity Travel</title>
   </head>
   <body>
   <div id="container">
     <div id="header">
       <div id="logo"><a href=""><img src="img/logo.png" /></a></div>
-      <div id="username"><a href="">username</a></div>
+      <div id="username"><a href="">@serentv</a></div>
     </div>
     <div id="body">
       <h2>
         <div id="owner" class="content_section">
-          <a href="">@twitter_name</a> は<br/>ブルガリアへ行きたい!
+          <a href="">@serentv</a> は<br/>ジャイアンツコーズウェイへ行きたい!
         </div>
       </h2>
       <div id="location_image" class="content_section">
-        <img id="location" src="img/main.jpg" width="900" />
+        <img id="location" src="http://static.panoramio.com/photos/original/24291563.jpg" width="900" />
       </div>
       <div id="map" class="content_section">
       </div>
@@ -40,11 +41,27 @@
 
       <div id="choose_hotel" class="content_section">
         ホテルを選ぶ
+    	<section id='hotels'>
+            <div class='navigation-container'>
+    			<div id='hotels-thumbs' class='navigation'>
+    				<a class='pageLink prev' href='#' title='Previous Page'></a>
+    
+    				<ul class='thumbs'>
+    
+    				</ul>
+    				<a class='pageLink next' href='#' title='Next Page'></a>
+    			</div>
+    		</div>
+    	</section>
+    	<section id='selectedHotel' style='visible:hidden;'></section>
+      </div>
+      <div class="content_section">
+          <button id="hotelSelect">宿泊場所はここ！</button>
       </div>
 
       <div class="content_section">
         レストランを選ぶ
-        <section id='restaurants'>
+        <section id='restaurants' style='visible:hidden;'>
         <div class='navigation-container'>
           <div id='restaurants-thumbs' class='navigation'>
             <a class='pageLink prev' href='#' title='Previous Page'></a>
@@ -56,6 +73,9 @@
           </div>
         </div>
         </section>
+      </div>
+      <div class="content_section">
+          <button id="restaurantSelect">ここで食べる！</button>
       </div>
 
       <div id="edit_title" class="content_section">

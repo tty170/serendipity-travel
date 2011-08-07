@@ -41,6 +41,7 @@ h2 {
 
 .content_section {
 	margin: 10px auto;
+	clear: both;
 }
 
 #location {
