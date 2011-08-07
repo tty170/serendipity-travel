@@ -1,0 +1,9 @@
+#logo {
+	float: left;
+}
+#usermenu {
+	float: right;
+}
+#wapiblock {
+	clear: both;
+}

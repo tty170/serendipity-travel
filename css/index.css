@@ -1,0 +1,63 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #eee;
+}
+
+
+#container {
+	width: 1000px;
+	margin: 20px auto;
+	background: #fff;
+	border: #aaa 1px solid;
+	border-radius: 10px;
+}
+
+#header {
+	height: 140px;
+}
+
+#logo {
+	width: 50%;
+	float: left;
+}
+
+#username {
+	margin-left: 50%;
+	text-align: right;
+	width: 45%;
+	padding: 10px 0;
+}
+
+#body {
+	margin: 10px auto;
+	padding: 10px;
+	width: 970px;
+}
+
+#location_image {
+	margin: 0 auto;
+}
+
+.cleafix {
+	clear: both;
+}
+
+#footer {
+	margin: 10px auto;
+	width: 1000px;
+	text-align: center;
+
+}
+
+#i_want_go {
+	display: block;
+	width: 30em;
+	height: 50px;
+	margin: 0 auto;
+}
+
+
+.area_check {
+	border: 1px solid #000;
+}

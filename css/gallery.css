@@ -1,0 +1,65 @@
+body {
+    background: #eee;
+}
+
+div.navigation a.pageLink {
+    height: 77px;
+    line-height: 77px;
+}
+
+div.navigation-container {
+    float: left;
+    position: relative;
+    left: 50%;
+}
+
+div.navigation {
+    float: left;
+    position: relative;
+    left: -50%;
+}
+
+div.navigation a.pageLink {
+    display: block;
+    position: relative;
+    float: left;
+    margin: 2px;
+    width: 16px;
+    background-position:center center;
+    background-repeat:no-repeat;
+}
+
+div.navigation a.pageLink:focus {
+    outline: none;
+}
+
+div.navigation a.prev {
+    background-image: url(resource/prevPageArrowGray.gif);
+}
+div.navigation a.next {
+    background-image: url(resource/nextPageArrowGray.gif);
+}
+
+ul.thumbs {
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+ul.thumbs li {
+    float: left;
+    padding: 0;
+    margin: 2px;
+    list-style: none;
+}
+a.thumb {
+    padding: 1px;
+    display: block;
+}
+a.thumb:focus {
+    outline: none;
+}
+ul.thumbs img {
+    border: none;
+    display: block;
+}
