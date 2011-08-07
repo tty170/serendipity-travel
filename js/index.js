@@ -47,8 +47,8 @@ $(function() {
 		});
 	}
 	
-	$('#wantToGo').submit(function() {
-	    var selectedImg = $('#current img');
+	$('#wannago').click(function() {
+	    var selectedImg = $('#current');
         $.ajax({
         	type: 'POST',
         	url: '/wantToGo',

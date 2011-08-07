@@ -54,16 +54,24 @@ h2 {
 	height: 200px;
 }
 
+
 #want_or_go {
-	width: 800px;
+	width: 425px;
+
 }
 
-#want_or_go input {
-	width:48%;
+#want_or_go img {
+	margin: 0 5px;
 }
 
 #title {
-	width: 300px;
+	font-size: 24pt;
+	width: 750px;
+}
+
+#edit_title {
+	margin-top: 90px;
+	clear: both;
 }
 
 .area_check {
