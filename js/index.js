@@ -2,14 +2,24 @@ $(function() {
 	var currentPage = 0;
 	var pageSize = 20;
 	
-	requestGetPhotos(0, pageSize);
+	var startIndex = Math.floor(Math.random() * 100);
+	requestGetPhotos(startIndex, startIndex + pageSize);
 	
 	function requestGetPhotos(from, to) {
 		$.ajax({
 			type: 'GET',
-			//url: 'http://www.panoramio.com/map/get_panoramas.php',
-			url: 'http://api.seren.tv/d_image/',
-			//data: 'set=public&from=' + from +  '&to=' + to + '&minx=-180&miny=-90&maxx=180&maxy=90&size=medium&mapfilter=true',
+			url: 'http://www.panoramio.com/map/get_panoramas.php',
+			data: {
+			    'set': 'public',
+			    'from': from,
+			    'to': to,
+			    'minx': -180,
+			    'miny': -90,
+			    'maxx': 180,
+			    'maxy': 90,
+			    'size': 'medium',
+			    'mapfilter': true
+			    },
 			success: function(data){
 				if (data != null && data.count > 1) {
 					loadPhoto(data.photos, 0);
@@ -24,6 +34,7 @@ $(function() {
 			requestGetPhotos(from, from + pageSize);
 			return;
 		}
+		
 		var currentPhoto = photos[index];
 		var nextPhoto = photos[index + 1];
 
@@ -35,7 +46,7 @@ $(function() {
 		    title: nextPhoto.photo_title,
 		    width: 160,
 		    height: 160,
-		    'data-photoId': nextPhoto.photo_id
+		    'data-photoid': nextPhoto.photo_id
 		});
 		
 		$('#current').attr({
@@ -43,23 +54,25 @@ $(function() {
 		    title: currentPhoto.photo_title,
 			width: 800,
 			height: 600,
-		    'data-photoId': currentPhoto.photo_id
+		    'data-photoid': currentPhoto.photo_id
 		});
 	}
 	
 	$('#wannago').click(function() {
-	    var selectedImg = $('#current');
-		document.location="location.html";
-        /*$.ajax({
+		//document.location="location.html";
+		var selectedPhotoId = $('#current').attr('data-photoid');
+        $.ajax({
         	type: 'GET',
         	url: '/new',
         	data: {
-        	    'photo_id': selectedImg.attr('data-photoId'),
-        	    'photo_file_url': selectedImg.src
+        	    'photo_id': photoId
         	},
-        	success: function(data){
+        	success: function(data) {
         		console.log(data);
         	}
-        });*/
+        	error: function(msg) {
+        	    console.log(msg);
+        	}
+        });
 	});
 });
