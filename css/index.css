@@ -45,7 +45,7 @@ body {
 
 #footer {
 	margin: 10px auto;
-	width: 1000px;
+	width: 100%;
 	text-align: center;
 
 }
@@ -53,13 +53,14 @@ body {
 #wannago {
 	display: block;
 	margin: 15px auto 0;
-
+	width: 200px;
+	height: 40px;
+    background: url('../img/wannago.png');
 }
 
 #wannago:hover {
-	cursor: pointer;
+    opacity: 0.7;
 }
-
 
 .area_check {
 	border: 1px solid #000;

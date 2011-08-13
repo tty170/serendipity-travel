@@ -6,15 +6,9 @@
     <meta http-equiv="Content-Script-Type" content="text/JavaScript">
     <title>Serendipity Travel</title>
     <link rel="stylesheet" href="css/index.css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="http://www.panoramio.com/wapi/wapi.js?v=1&amp;hl=en"></script>
     <script src="js/index.js"></script>
-    <script src="js/disableDoubleSubmit.js"></script>
-    <script>
-      $(function() {
-        $("form").disableDoubleSubmit(1000);
-      });
-    </script>
   </head>
   <body>
   <div id="container">
@@ -24,10 +18,10 @@
     </div>
     <div id="body" class="cleafix">
       <div id="photos">
-        <img id="current" src="img/loader.gif"></img>
-        <img id="next" src="img/loader.gif"></img>
+        <img id="current"></img>
+        <img id="next"></img>
       </div>
-      <img id="wannago" src="img/wannago.png" />
+      <a id="wannago" href="#"></a>
     </div>
     </div>
     <div id="footer">

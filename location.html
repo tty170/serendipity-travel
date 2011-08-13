@@ -1,90 +1,90 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/location.css" />
-    <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
-
-    <link type='text/css' href='css/gallery.css' rel='stylesheet'>
-    <script type='text/javascript' src='js/jquery.galleriffic.js'></script>
-    <script type='text/javascript' src='js/jquery.opacityrollover.js'></script>
-
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="js/location.js"></script>
-    <script type='text/javascript' src='js/hotel.js'></script>
-    <script type='text/javascript' src='js/restaurant.js'></script>
-    <title>Serendipity Travel</title>
-  </head>
-  <body>
-  <div id="container">
-    <div id="header">
-      <div id="logo"><a href="/"><img src="img/logo.png" /></a></div>
-      <div id="username"><a href="">@serentv</a></div>
-    </div>
-    <div id="body">
-      <h2>
-        <div id="owner" class="content_section">
-          <a href="">@serentv</a> は<br/>ジャイアンツコーズウェイへ行きたい!
-        </div>
-      </h2>
-      <div id="location_image" class="content_section">
-        <img id="location" src="http://static.panoramio.com/photos/original/24291563.jpg" width="900" />
-      </div>
-      <div id="map" class="content_section">
-      </div>
-      <div id="want_or_go" class="content_section">
-        <img id="want" src="img/wannago.png" />
-        <img id="go" src="img/recommend.png" />
-      </div>
-
-      <div id="choose_hotel" class="content_section">
-        ホテルを選ぶ
-    	<section id='hotels'>
-            <div class='navigation-container'>
-    			<div id='hotels-thumbs' class='navigation'>
-    				<a class='pageLink prev' href='#' title='Previous Page'></a>
-    
-    				<ul class='thumbs'>
-    
-    				</ul>
-    				<a class='pageLink next' href='#' title='Next Page'></a>
-    			</div>
-    		</div>
-    	</section>
-    	<section id='selectedHotel' style='visible:hidden;'></section>
-      </div>
-      <div class="content_section">
-          <button id="hotelSelect">宿泊場所はここ！</button>
-      </div>
-
-        <!--
-      <div class="content_section">
-        レストランを選ぶ
-        <section id='restaurants' style='visible:hidden;'>
-        <div class='navigation-container'>
-          <div id='restaurants-thumbs' class='navigation'>
-            <a class='pageLink prev' href='#' title='Previous Page'></a>
-
-            <ul class='thumbs'>
-
-            </ul>
-            <a class='pageLink next' href='#' title='Next Page'></a>
-          </div>
-        </div>
-        </section>
-      </div>
-      <div class="content_section">
-          <button id="restaurantSelect">ここで食べる！</button>
-      </div>
-      -->
-
-      <div id="edit_title" class="content_section">
-        タイトル（80文字）<br/>
-        <input id="title" type="text" maxlength="80" />
-      </div>
-
-    </div>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<title>Serendipity Travel</title>
+		<link type="text/css" rel="stylesheet" href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css">
+		<link type="text/css" rel="stylesheet" href="css/gallery.css">
+		<link type="text/css" rel="stylesheet" href="css/jquery.notifyBar.css">
+		<link type="text/css" rel="stylesheet" href="css/location.css" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.galleriffic.js"></script>
+		<script type="text/javascript" src="js/jquery.opacityrollover.js"></script>
+		<script type="text/javascript" src="js/jquery.notifyBar.js"></script>
+		<script src="http://www.panoramio.com/wapi/wapi.js?v=1&amp;hl=en"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="js/location.js"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<div id="logo">
+					<a href="/"><img src="img/logo.png" /></a>
+				</div>
+				<div id="username">
+					<a href="">@serentv</a>
+				</div>
+			</div>
+			<div id="body">
+				<div id="plan_title" class="content_section">
+					<h3><a href="">@serentv</a>はジャイアンツコーズウェイへ行きたい!</h3>
+				</div>
+				<div id="location_image" class="content_section"></div>
+				<div id="map" class="content_section"></div>
+				<div id="want_or_go" class="content_section">
+				    <a id="want" href="#"></a>
+				    <a id="go" href="#"></a>
+				</div>
+				<div id="choose_hotel" class="content_section" style="display:none;">
+					ホテルを選ぶ
+					<div id="hotels">
+						<div class="navigation_container">
+							<div id="hotel_thumbs" class="navigation">
+								<a class="pageLink prev" href="#" title="Previous Page"></a>
+								<ul class="thumbs"></ul>
+								<a class="pageLink next" href="#" title="Next Page"></a>
+							</div>
+						</div>
+					</div>
+                    <div class="content_section">
+                    	<button id="select_hotel">
+                    		宿泊場所はここ！
+                    	</button>
+                    </div>
+				</div>
+				<div id="selected_hotel" class="content_section" style="display:none;"></div>
+				<div id="choose_restaurant" class="content_section" style="display:none;">
+					レストランを選ぶ
+					<div id="restaurants">
+						<div class="navigation_container">
+							<div id="restaurant_thumbs" class="navigation">
+								<a class="pageLink prev" href="#" title="Previous Page"></a>
+								<ul class="thumbs"></ul>
+								<a class="pageLink next" href="#" title="Next Page"></a>
+							</div>
+						</div>
+					</div>
+                    <div class="content_section">
+                    	<button id="select_restaurant">
+                    		ここで食べる！
+                    	</button>
+                    </div>
+				</div>
+				<div id="selected_restaurant" class="content_section" style="display:none;"></div>
+				<div id="edit_title" class="content_section" style="display:none;">
+					タイトル（80文字）
+					<br/>
+					<input id="title" type="text" maxlength="80" />
+                    <div class="content_section">
+                    	<button id="save_title">
+                    		名前はこれ！
+                    	</button>
+                    </div>
+				</div>
+				<div id="saved_title" class="content_section" style="display:none;"></div>
+			</div>
+			<div id="footer" class="content_section"><small>Copyright seven.tv All Rights Reserved.</small></div>
+		</div>
+	</body>
 </html>
