@@ -75,6 +75,13 @@ h2 {
 	clear: both;
 }
 
+#want_or_go img:hover {
+	cursor: pointer;
+}
+
+
+
 .area_check {
 	border: 1px solid #f00;
 }
+
