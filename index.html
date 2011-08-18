@@ -6,20 +6,14 @@
     <meta http-equiv="Content-Script-Type" content="text/JavaScript">
     <title>Serendipity Travel</title>
     <link rel="stylesheet" href="css/index.css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="http://www.panoramio.com/wapi/wapi.js?v=1&amp;hl=en"></script>
     <script src="js/index.js"></script>
-    <script src="js/disableDoubleSubmit.js"></script>
-    <script>
-      $(function() {
-        $("form").disableDoubleSubmit(1000);
-      });
-    </script>
   </head>
   <body>
   <div id="container">
     <div id="header">
-      <div id="logo"><a href=""><img src="img/logo.png" /></a></div>
+      <div id="logo"><img src="img/logo.png"></img></div>
       <div id="username"><a href="http://twitter.com/serentv">@serentv</a></div>
     </div>
     <div id="content" class="clearfix">
@@ -35,18 +29,12 @@
           </div>
         </div>
       </div>
-
-
       <div class="photo_rights" style="width: 496px; color: black !important; "><a href="http://www.panoramio.com" target="_top"><img src="http://www.panoramio.com/img/logo-tos.png" width="67" height="14"></a>
         <span>
             写真は所有者の著作権により保護されています
           </span>
         </div>
-
       <img id="wannago" src="img/wannago.png" />
-
-
-
     </div>
     </div>
     <div id="footer">

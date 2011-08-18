@@ -1,62 +1,61 @@
 $(function() {
-    $('#restaurantSelect').click(function() {
+    $('#hotelSelect').click(function() {
         var urlElement = location.href.split('/');
         var pathElement = urlElement[urlElement.length - 1];
         var lastPath = pathElement.split('?')[0];
         var hash = lastPath.split('.')[0];
         
-        var hotelAnchor = $('#restaurant-thums li.selected a');
+        var hotelAnchor = $('#hotel-thums li.selected a');
         $.ajax({
         	type: 'GET',
         	url: 'http://seren.tv/post',
         	data: {'hash': hash, 
-        	    'target': 'r', 
+        	    'target': 'h', 
         	    'status': hotelAnchor.attr('data-code')
         	},
         	success: function(data) {
-        		showSelectedRestaurant();
+        		showSelectedHotel();
         	},
         	error: function(data) {
-        	    showSelectedRestaurant();
+        	    showSelectedHotel();
         	}
         });
     });
     
-
-    function showSelectedRestaurant(restaurant) {
-        var hotelAnchor = $('#restaurant-thums li.selected a');
-        $('<div><img width="180" height="180" src="http://media-cdn.tripadvisor.com/media/photo-s/01/ef/4d/11/steak-with-mushroom-sauce.jpg"></img><span style="font-size: 2em;">Tiramisu</span></div>')
-            .appendTo($('#selectedRestaurant'));
+    function showSelectedHotel(hotel) {
+        var hotelAnchor = $('#hotel-thums li.selected a');
+        
+        $('<div><img width="180" height="180" src="http://www.pelican-travel.net/zPutImg.php?act=hotelImg&frCd=chile&fileNm=CHILEgaikanr.JPG"></img><span style="font-size: 2em;">ロイヤルホテル韓国</span></div>')
+            .appendTo($('#selectedHotel'));
     
-        $('#restaurantSelect').hide();
-        $('#restaurants').hide();
-        $('#selectedRestaurant').show();
+        $('#hotelSelect').hide();
+        $('#hotels').hide();
+        $('#selectedHotel').show();
+        $('#restaurants').show();
     }
 
-    $.getJSON('http://api.seren.tv/d_restaurant/', {'citycode':'CHI'}, function(data) {
+    $.getJSON('http://api.seren.tv/hotel/', {'citycode':'SEL'}, function(data) {
         var index = 0;
-        var restaurants = data;
-        var restaurantsCount = hotels.length;
-        var thumbs = $('#restaurants-thumbs .thumbs');
+        var hotels = data;
+        var hotelsCount = hotels.length;
+        var thumbs = $('#hotels-thumbs .thumbs');
         
-        $(restaurants).each(function(i) {
-            var restaurant = restaurants[i];
+        $(hotels).each(function(i) {
+            var hotel = hotels[i];
             
             $('<li>').append(
                 $('<a>').attr({
-                    'data-code': restaurant.code,
+                    'data-code': hotel.code,
                     'class': 'thumb',
                     'href': '#'
-                }).click(function(event) {
-                    console.log(event.currentTarget);
                 }).append(
                     $('<img>').attr({
-                        'src': restaurant.img_url,
-                        'alt': restaurant.name,
-                        'height': 80,
-                        'width': 80
+                        'src': hotel.img_url,
+                        'alt': '#',
+                        'height': 100,
+                        'width': 100
                     }).load(function() {
-                        if (++index >= restaurantsCount) {
+                        if (++index >= hotelsCount) {
                             applyThumbsView();
                         }
                     })
@@ -67,14 +66,14 @@ $(function() {
     
     function applyThumbsView() {
     	var onMouseOutOpacity = 0.67;
-    	$('#restaurants-thumbs ul.thumbs li, div.navigation a.pageLink').opacityrollover({
+    	$('#hotels-thumbs ul.thumbs li, div.navigation a.pageLink').opacityrollover({
     		mouseOutOpacity:   onMouseOutOpacity,
     		mouseOverOpacity:  1.0,
     		fadeSpeed:         'fast',
     		exemptionSelector: '.selected'
     	});
     	
-    	var gallery = $('#restaurants-thumbs').galleriffic({
+    	var gallery = $('#hotels-thumbs').galleriffic({
     		numThumbs:                 10,
     		preloadAhead:              10,
     		enableTopPager:            false,

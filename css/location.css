@@ -23,6 +23,15 @@ h2 {
 	height: 140px;
 }
 
+#footer {
+    width: 100%;
+    text-align:center;
+}
+
+#footer small {
+    margin: 0 auto;
+}
+
 #logo {
 	width: 50%;
 	float: left;
@@ -44,6 +53,11 @@ h2 {
 	clear: both;
 }
 
+#location_image {
+    width: 800px;
+    height: 600px;
+}
+
 #location {
 	display: block;
 	margin: 0 auto;
@@ -55,14 +69,26 @@ h2 {
 	height: 200px;
 }
 
-
 #want_or_go {
-	width: 425px;
-
+	width: 460px;
 }
 
-#want_or_go img {
-	margin: 0 5px;
+#want {
+	display: block;
+	float: left;
+	margin: 15px 4px;
+	width: 200px;
+	height: 40px;
+    background: url('../img/wannago.png');
+}
+
+#go {
+	display: block;
+	float: left;
+	margin: 15px 4px;
+	width: 200px;
+	height: 40px;
+    background: url('../img/recommend.png');
 }
 
 #title {
